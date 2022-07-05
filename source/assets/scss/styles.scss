@@ -3,6 +3,13 @@
 
 @import "bs-config";
 
+// FONT EXTERNA
+@font-face {
+    font-family: 'Calistha';
+    src: url('../fonts/Calistha.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 // ICOMOON
 @import '../icomoon/style';
 
@@ -24,6 +31,7 @@
 @import 'components/tour';
 @import 'components/contato';
 @import 'components/realizacao';
+@import 'components/empreendimento';
 @import 'components/conversao';
 @import 'components/modal';
 @import 'components/footer';
