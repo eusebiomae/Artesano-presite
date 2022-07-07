@@ -129,4 +129,17 @@
         padding: 18px;
         font-size: 14px;
     }
+
+    .detalhe-cinza {
+        display: none;
+        
+        @include media-breakpoint-up (lg) {
+            display: flex;
+            position: absolute;
+            bottom: -110px;
+            right: 0;
+            width: 168px;
+            height: 402px;
+        }    
+    }
 }

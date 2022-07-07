@@ -1,4 +1,43 @@
-.empreendimento{
+.empreendimento {
     background: #000;
-    
+
+    @include media-breakpoint-up(lg) {
+        display: flex;
+    }
+
+    // .container {
+
+    //     @include media-breakpoint-up(lg){ 
+    //         display: flex;
+    //     }
+    // }
+
+    &-infos {
+        display: flex;
+
+        @include media-breakpoint-up(lg) {
+            display: flex;
+            align-items: center;
+            margin: 0 42px;
+            gap: 40px;
+
+        }
+
+        .info {
+            
+            .tit {
+                font-size: 15px;
+                font-weight: 600;
+                line-height: 15px;
+                text-transform: uppercase;
+            }
+
+            p {
+                font-size: 15px;
+                font-weight: 400;
+                line-height: 21px;
+            }
+        }
+    }
+
 }
