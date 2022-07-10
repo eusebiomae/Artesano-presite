@@ -59,9 +59,14 @@
 
     .detalhes {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: center;
         gap: 20px;
+
+        @include media-breakpoint-up(lg) { 
+            flex-wrap: nowrap;
+        }
     }
 
     h4 {
@@ -89,22 +94,20 @@
         // }
 
         // @include media-breakpoint-up (lg) {
-            height: 60px;
+            height: 50px;
             border-right: 1px solid #000;
             position: relative;
         // }
     }
     .divisor-horizontal {
-        // @include media-breakpoint-down (md) {
-        //     width: 104px;
-        //     border: 1px solid #000;
-        //     margin-top: 40px;
-        //     margin-bottom: 40px;
-        //     display: inline-flex;
-        // }
+        @include media-breakpoint-down (md) {
+            width: 345px;
+            border: 1px solid #000;
+            display: inline-flex;
+        }
 
         @include media-breakpoint-up (lg) {
-            height: 60px;
+            height: 50px;
             border-right: 1px solid #000;
             position: relative;
         }
@@ -116,6 +119,7 @@
         font-size: 18px;
         line-height: 25.2px;
         text-align: center;
+        margin: 16px 0 0 0;
 
         @include media-breakpoint-up (lg) {
             display: none;

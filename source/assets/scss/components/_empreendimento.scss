@@ -3,6 +3,9 @@
 
     @include media-breakpoint-up(lg) {
         display: flex;
+        height: 430px;
+        width: 100%;
+        justify-content: space-between;
     }
 
     // .container {
@@ -14,28 +17,79 @@
 
     &-infos {
         display: flex;
+        flex-wrap: wrap;
+        gap: 26px 0;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        margin: 0 0 40px;
 
         @include media-breakpoint-up(lg) {
             display: flex;
+            flex-wrap: nowrap;
+            flex: 1 1 150px;
             align-items: center;
             margin: 0 42px;
-            gap: 40px;
+            gap: 35px;
 
         }
 
         .info {
-            
+
+            width: 155px;
+
+            @include media-breakpoint-up (lg) {
+                height: 114px;
+                width: auto;
+            }
+
             .tit {
                 font-size: 15px;
                 font-weight: 600;
                 line-height: 15px;
                 text-transform: uppercase;
+                color: #fff;
             }
 
             p {
                 font-size: 15px;
                 font-weight: 400;
                 line-height: 21px;
+                color: #fff;
+            }
+        }
+    }
+
+    &-img {
+
+        @include media-breakpoint-up(lg) {
+            display: flex;
+            position: relative;
+            height: 430px;
+            top: -30px;
+            right: 0;
+            left: 0;
+        }
+
+        .fachada {
+
+            @include media-breakpoint-down(md) {
+                img {
+                    width: -webkit-fill-available;
+                }
+            }
+        }
+
+        .granito {
+
+            @include media-breakpoint-down (md) {
+                position: absolute;
+                text-align: center;
+                width: -webkit-fill-available;
+    
+                img {
+                    width: inherit;
+                }
+
             }
         }
     }
