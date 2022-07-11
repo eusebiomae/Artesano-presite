@@ -8,13 +8,6 @@
         justify-content: space-between;
     }
 
-    // .container {
-
-    //     @include media-breakpoint-up(lg){ 
-    //         display: flex;
-    //     }
-    // }
-
     &-infos {
         display: flex;
         flex-wrap: wrap;
@@ -77,6 +70,28 @@
                     width: -webkit-fill-available;
                 }
             }
+
+            span {
+                @include media-breakpoint-down(md) {
+                    position: absolute;
+                    top: 2180px;
+                    right: 8px;
+                    color: #fff;
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 12px;
+                }
+
+                @include media-breakpoint-up(lg) {
+                    position: absolute;
+                    bottom: 18px;
+                    right: 105px;
+                    color: #fff;
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 12px;
+                }
+            }
         }
 
         .granito {
@@ -85,7 +100,7 @@
                 position: absolute;
                 text-align: center;
                 width: -webkit-fill-available;
-    
+
                 img {
                     width: inherit;
                 }

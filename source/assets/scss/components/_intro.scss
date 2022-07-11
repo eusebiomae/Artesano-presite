@@ -131,6 +131,30 @@
         @include media-breakpoint-up (lg) {
             margin-top: 19px;
         }
+
+        span {
+            @include media-breakpoint-down (md) {
+                position: absolute;
+                color: #fff;
+                display: block;
+                right: 27px;
+                bottom: 85px;
+                font-size: 12px;
+                line-height: 12px;
+                font-weight: 400;
+            }
+
+            @include media-breakpoint-up (lg) {
+                position: absolute;
+                color: #fff;
+                display: block;
+                right: 281px;
+                bottom: 105px;
+                font-size: 12px;
+                line-height: 12px;
+                font-weight: 400;
+            }
+        }
     }
 
     button {

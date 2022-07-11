@@ -21,39 +21,55 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
+    // ABRIR MODAL
+    $('.open-modal').on('click', function (e) {
+        e.preventDefault();
 
+        var target = $(this).data('modal-target');
+
+        $(target).addClass('modal-show');
+
+        if (target == '.modal-video') {
+            var src = $('.modal-video iframe').data('src');
+            $('.modal-video iframe').attr('src', src);
+        }
+    })
+    $('.modal-custom .bt-fechar, .modal-custom .bg').on('click', function () {
+        $(this).parents('.modal-custom').removeClass('modal-show').find('.box-mensagem-ativo .btn').trigger('click');
+        $('.modal-video iframe').removeAttr('src');
+    })
+    
     // Modal Contato
-    on('.js-open-modal', 'click', (e) => {
-        let tipo = e.currentTarget.getAttribute('data-modal-target');
-        document.querySelector(`[data-modal-contato=${tipo}]`).classList.add('active');
-        window.location.hash = "modal";
-        e.preventDefault();
-    })
-    on('.js-close-modal', 'click', (e) => {
-        e.currentTarget.closest('.modal-contato').classList.remove('active');
-        history.pushState(null, null, '/');
-        e.preventDefault();
-    })
+    // on('.js-open-modal', 'click', (e) => {
+    //     let tipo = e.currentTarget.getAttribute('data-modal-target');
+    //     document.querySelector(`[data-modal-contato=${tipo}]`).classList.add('active');
+    //     window.location.hash = "modal";
+    //     e.preventDefault();
+    // })
+    // on('.js-close-modal', 'click', (e) => {
+    //     e.currentTarget.closest('.modal-contato').classList.remove('active');
+    //     history.pushState(null, null, '/');
+    //     e.preventDefault();
+    // })
 
-    window.onpopstate = function () {
-        let open_modal = document.querySelector('.modal-contato.active');
+    // window.onpopstate = function () {
+    //     let open_modal = document.querySelector('.modal-contato.active');
 
-        if (window.location.hash != '#menu') {
-            document.body.classList.remove('menu-active');
-        }
+    //     if (window.location.hash != '#menu') {
+    //         document.body.classList.remove('menu-active');
+    //     }
 
-        if (window.location.hash != '#modal' && open_modal) {
-            open_modal.classList.remove('active');
-        }
-    }
+    //     if (window.location.hash != '#modal' && open_modal) {
+    //         open_modal.classList.remove('active');
+    //     }
+    // }
 
 
     // Tipo Contato
     on('.js-select-contato', 'change', (e) => {
         let select = e.currentTarget,
             form = select.closest('form'),
-            required = select.options[select.selectedIndex].hasAttribute('data-tel-required')
-            ;
+            required = select.options[select.selectedIndex].hasAttribute('data-tel-required');
 
         if (required) {
             form.Telefone.required = true;
@@ -115,7 +131,10 @@ document.addEventListener("DOMContentLoaded", () => {
             breakpoints: {
                 640: {
                     perPage: 1,
-                    padding: { right: '10%', left: 20 },
+                    padding: {
+                        right: '10%',
+                        left: 20
+                    },
                     fixedWidth: false,
                     gap: 15,
                     arrows: false,
@@ -175,20 +194,22 @@ document.addEventListener("DOMContentLoaded", () => {
         const pos = offset(document.querySelector(href)).top;
         document.body.classList.remove('menu-active');
 
-        scroll({ top: pos, behavior: 'smooth' });
+        scroll({
+            top: pos,
+            behavior: 'smooth'
+        });
     });
 })
 
 /*
-* name: on
-* description: 
-*/
+ * name: on
+ * description: 
+ */
 const on = (...args) => {
     let selector = args[0],
         element = args.length == 4 ? args[1] : document,
         handler = args.pop(),
-        event = args.pop()
-        ;
+        event = args.pop();
 
     element.querySelectorAll(selector).forEach((target) => {
         target.addEventListener(event, handler)
@@ -196,28 +217,30 @@ const on = (...args) => {
 };
 
 /*
-* name: offset
-* description: 
-*/
+ * name: offset
+ * description: 
+ */
 const offset = (el) => {
     const rect = el.getBoundingClientRect(),
         scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
         scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+    return {
+        top: rect.top + scrollTop,
+        left: rect.left + scrollLeft
+    }
 }
 
 
 /*
-* name: zoomPhotoswipe
-* description: 
-*/
+ * name: zoomPhotoswipe
+ * description: 
+ */
 const zoomPhotoswipe = (el) => {
 
     let
         grupo = el.getAttribute('data-zoom-group'),
         items = new Array(),
-        index = parseInt(el.getAttribute('data-zoom-index'))
-        ;
+        index = parseInt(el.getAttribute('data-zoom-index'));
 
     document.querySelectorAll('[data-zoom-group="' + grupo + '"]').forEach((el) => {
         let size = el.getAttribute('data-zoom-size').split('x');
@@ -251,9 +274,9 @@ const zoomPhotoswipe = (el) => {
 }
 
 /*
-* name: insertModalPS
-* description: 
-*/
+ * name: insertModalPS
+ * description: 
+ */
 const insertModalPS = () => {
     let html = `<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="pswp__bg"></div>
@@ -294,9 +317,9 @@ const insertModalPS = () => {
 }
 
 /*
-* name: masked
-* description: 
-*/
+ * name: masked
+ * description: 
+ */
 const masked = {
     tel: (selector) => {
         const telMask = ['(99) 9999-99999', '(99) 99999-9999'];
@@ -316,21 +339,24 @@ const masked = {
 }
 
 /*
-* name: gaEvent
-* description: 
-*/
+ * name: gaEvent
+ * description: 
+ */
 window.ga_event = (category, action, label) => {
     try {
-        gtag('event', action, { event_category: category, event_label: label });
+        gtag('event', action, {
+            event_category: category,
+            event_label: label
+        });
     } catch (e) {
         console.warn('GA não instalado.')
     }
 }
 
 /*
-* name: Hubid
-* description: 
-*/
+ * name: Hubid
+ * description: 
+ */
 window.hubid_callback = (state, form, channel, message) => {
     let box_msg,
         tipo = form.getAttribute('data-tipo');

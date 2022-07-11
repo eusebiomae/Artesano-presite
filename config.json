@@ -6,6 +6,19 @@
     "facebook": "",
     "hubid": "d3d9446802465",
     "telefone": "(11) 9999-9999",
+    "contato": {
+        "telefone": [""],
+        "whatsapp": {
+            "numero": [""],
+            "modal": true
+        },
+        "chat": true,
+        "email": {
+            "grupo_1": ["id360nm2@gmail.com"],
+            "grupo_2": [],
+            "grupo_whats": []
+        }
+    },
     "galerias": [
         {
             "size_thumb": {"w": 830, "h": 530},
