@@ -4,6 +4,8 @@ import PhotoSwipe from 'photoswipe';
 import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default.js';
 import Splide from '@splidejs/splide';
 
+require('bootstrap/js/dist/modal');
+
 // variables
 const ismobile = window.innerWidth <= 768;
 const pageLazyLoad = new LazyLoad();
@@ -22,47 +24,47 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     // ABRIR MODAL
-    $('.open-modal').on('click', function (e) {
-        e.preventDefault();
+    // on ('.open-modal').on('click', function (e) {
+    //     e.preventDefault();
 
-        var target = $(this).data('modal-target');
+    //     var target = $(this).data('modal-target');
 
-        $(target).addClass('modal-show');
+    //     $(target).addClass('modal-show');
 
-        if (target == '.modal-video') {
-            var src = $('.modal-video iframe').data('src');
-            $('.modal-video iframe').attr('src', src);
-        }
-    })
-    $('.modal-custom .bt-fechar, .modal-custom .bg').on('click', function () {
-        $(this).parents('.modal-custom').removeClass('modal-show').find('.box-mensagem-ativo .btn').trigger('click');
-        $('.modal-video iframe').removeAttr('src');
-    })
-    
+    //     if (target == '.modal-video') {
+    //         var src = $('.modal-video iframe').data('src');
+    //         $('.modal-video iframe').attr('src', src);
+    //     }
+    // })
+    // on ('.modal-custom .bt-fechar, .modal-custom .bg').on('click', function () {
+    //     $(this).parents('.modal-custom').removeClass('modal-show').find('.box-mensagem-ativo .btn').trigger('click');
+    //     $('.modal-video iframe').removeAttr('src');
+    // })
+
     // Modal Contato
-    // on('.js-open-modal', 'click', (e) => {
-    //     let tipo = e.currentTarget.getAttribute('data-modal-target');
-    //     document.querySelector(`[data-modal-contato=${tipo}]`).classList.add('active');
-    //     window.location.hash = "modal";
-    //     e.preventDefault();
-    // })
-    // on('.js-close-modal', 'click', (e) => {
-    //     e.currentTarget.closest('.modal-contato').classList.remove('active');
-    //     history.pushState(null, null, '/');
-    //     e.preventDefault();
-    // })
+    on('.open-modal', 'click', (e) => {
+        let tipo = e.currentTarget.getAttribute('data-modal-target');
+        document.querySelector(`[data-modal-contato=${tipo}]`).classList.add('active');
+        window.location.hash = "modal";
+        e.preventDefault();
+    })
+    on('.close-modal', 'click', (e) => {
+        e.currentTarget.closest('.modal-contato').classList.remove('active');
+        history.pushState(null, null, '/');
+        e.preventDefault();
+    })
 
-    // window.onpopstate = function () {
-    //     let open_modal = document.querySelector('.modal-contato.active');
+    window.onpopstate = function () {
+        let open_modal = document.querySelector('.modal-contato.active');
 
-    //     if (window.location.hash != '#menu') {
-    //         document.body.classList.remove('menu-active');
-    //     }
+        if (window.location.hash != '#menu') {
+            document.body.classList.remove('menu-active');
+        }
 
-    //     if (window.location.hash != '#modal' && open_modal) {
-    //         open_modal.classList.remove('active');
-    //     }
-    // }
+        if (window.location.hash != '#modal' && open_modal) {
+            open_modal.classList.remove('active');
+        }
+    }
 
 
     // Tipo Contato
