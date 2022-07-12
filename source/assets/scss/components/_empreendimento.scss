@@ -64,17 +64,22 @@
         }
 
         .fachada {
-
-            @include media-breakpoint-down(md) {
+            @include media-breakpoint-up(lg) { 
                 img {
-                    width: -webkit-fill-available;
+                    height: -webkit-fill-available;
                 }
             }
+
+            // @include media-breakpoint-down(md) {
+            //     img {
+            //         width: -webkit-fill-available;
+            //     }
+            // }
 
             span {
                 @include media-breakpoint-down(md) {
                     position: absolute;
-                    top: 2180px;
+                    top: 2260px;
                     right: 8px;
                     color: #fff;
                     font-size: 12px;
