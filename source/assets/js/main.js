@@ -23,32 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
-    // ABRIR MODAL
-    // on ('.open-modal').on('click', function (e) {
-    //     e.preventDefault();
-
-    //     var target = $(this).data('modal-target');
-
-    //     $(target).addClass('modal-show');
-
-    //     if (target == '.modal-video') {
-    //         var src = $('.modal-video iframe').data('src');
-    //         $('.modal-video iframe').attr('src', src);
-    //     }
-    // })
-    // on ('.modal-custom .bt-fechar, .modal-custom .bg').on('click', function () {
-    //     $(this).parents('.modal-custom').removeClass('modal-show').find('.box-mensagem-ativo .btn').trigger('click');
-    //     $('.modal-video iframe').removeAttr('src');
-    // })
-
     // Modal Contato
-    on('.open-modal', 'click', (e) => {
+    on('.js-open-modal', 'click', (e) => {
         let tipo = e.currentTarget.getAttribute('data-modal-target');
         document.querySelector(`[data-modal-contato=${tipo}]`).classList.add('active');
         window.location.hash = "modal";
         e.preventDefault();
     })
-    on('.close-modal', 'click', (e) => {
+    on('.js-close-modal', 'click', (e) => {
         e.currentTarget.closest('.modal-contato').classList.remove('active');
         history.pushState(null, null, '/');
         e.preventDefault();
