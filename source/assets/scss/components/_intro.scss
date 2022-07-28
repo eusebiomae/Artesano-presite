@@ -53,13 +53,16 @@
         }
     }
 
-    &-tit {
-        color: #000;
-        font-family: 'Calistha';
-        font-weight: 400;
-        font-size: 46px;
-        line-height: 52.02px;
+    .logo-texto {
+        width: 340px;
     }
+    // &-tit {
+    //     color: #000;
+    //     font-family: 'Calistha';
+    //     font-weight: 400;
+    //     font-size: 46px;
+    //     line-height: 52.02px;
+    // }
 
     .detalhes {
         display: flex;
