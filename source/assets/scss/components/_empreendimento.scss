@@ -70,12 +70,6 @@
                 }
             }
 
-            // @include media-breakpoint-down(md) {
-            //     img {
-            //         width: -webkit-fill-available;
-            //     }
-            // }
-
             span {
                 @include media-breakpoint-down(md) {
                     position: absolute;

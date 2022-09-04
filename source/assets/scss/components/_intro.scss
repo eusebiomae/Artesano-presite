@@ -56,13 +56,6 @@
     .logo-texto {
         width: 340px;
     }
-    // &-tit {
-    //     color: #000;
-    //     font-family: 'Calistha';
-    //     font-weight: 400;
-    //     font-size: 46px;
-    //     line-height: 52.02px;
-    // }
 
     .detalhes {
         display: flex;
@@ -124,10 +117,6 @@
         line-height: 25.2px;
         text-align: center;
         margin: 16px 0 0 0;
-
-        // @include media-breakpoint-up (lg) {
-        //     display: none;
-        // }
     }
 
     picture {
